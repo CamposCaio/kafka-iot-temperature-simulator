@@ -1,0 +1,16 @@
+{
+  "name": "kafka-iot-temperature-simulator",
+  "version": "1.0.0",
+  "repository": "git@github.com:CamposCaio/kafka-iot-temperature-simulator.git",
+  "private": true,
+  "workspaces": [
+    "database-writer",
+    "iot-gateway",
+    "temperature-monitor"
+  ],
+  "scripts": {
+    "start:dw": "yarn --cwd database-writer start",
+    "start:ig": "yarn --cwd iot-gateway start",
+    "start:tm": "yarn --cwd temperature-monitor start"
+  }
+}
