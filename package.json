@@ -9,8 +9,8 @@
     "temperature-monitor"
   ],
   "scripts": {
-    "start:dw": "yarn --cwd database-writer start",
-    "start:ig": "yarn --cwd iot-gateway start",
-    "start:tm": "yarn --cwd temperature-monitor start"
+    "start:dw": "yarn --cwd database-writer start --watch",
+    "start:ig": "yarn --cwd iot-gateway start --watch",
+    "start:tm": "yarn --cwd temperature-monitor start --watch"
   }
 }
