@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { KafkaModule } from './kafka/kafka.module';
+import { TemperatureModule } from './temperature/temperature.module';
 
-@Module({ imports: [KafkaModule] })
+@Module({ imports: [TemperatureModule] })
 export class AppModule {}

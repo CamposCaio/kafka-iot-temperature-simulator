@@ -1,5 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { ConsumerService } from './consumer.service';
+import { ConsumerService } from 'src/kafka/consumer.service';
+import { convertFahrenheitToCelsius } from './utils/convert-fahrenheit-to-celsius';
 
 interface TemperatureMessage {
   temperature: number;
@@ -7,7 +8,7 @@ interface TemperatureMessage {
 }
 
 @Injectable()
-export class TemperatureConsumer implements OnModuleInit {
+export class TemperatureService implements OnModuleInit {
   constructor(private readonly consumerService: ConsumerService) {}
 
   onModuleInit() {
@@ -19,9 +20,12 @@ export class TemperatureConsumer implements OnModuleInit {
           message.value?.toString() ?? '',
         );
 
-        if (!value) return;
+        const temperature =
+          value.unit === 'C'
+            ? value.temperature
+            : convertFahrenheitToCelsius(value.temperature);
 
-        if (value.temperature > 50) {
+        if (temperature > 50) {
           console.log('Temperature is too high!');
         }
       },
