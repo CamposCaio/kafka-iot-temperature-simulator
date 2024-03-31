@@ -39,46 +39,46 @@ services:
     environment:
       POSTGRES_PASSWORD: 123
 
-  iot-gateway:
+  k-iot-gateway:
     build:
       context: ./iot-gateway
       dockerfile: Dockerfile
     container_name: iot-gateway
     environment:
-      - PORT=3001
+      - PORT=3004
     ports:
-      - "3001:3001"
+      - "3004:3004"
     depends_on:
       - db
       - broker
     volumes:
       - .iot-gateway/src:/app/src
 
-  temperature-monitor:
+  k-temperature-monitor:
     build:
       context: ./temperature-monitor
       dockerfile: Dockerfile
     container_name: temperature-monitor
     environment:
-      - PORT=3002
+      - PORT=3005
     ports:
-      - "3002:3002"
+      - "3005:3005"
     depends_on:
-      - iot-gateway
+      - k-iot-gateway
     volumes:
       - .temperature-monitor/src:/app/src
 
-  database-writer:
+  k-database-writer:
     build:
       context: ./database-writer
       dockerfile: Dockerfile
     container_name: database-writer
     environment:
-      - PORT=3003
+      - PORT=3006
     ports:
-      - "3003:3003"
+      - "3006:3006"
     depends_on:
-      - iot-gateway
+      - k-iot-gateway
     volumes:
       - .database-writer/src:/app/src
 

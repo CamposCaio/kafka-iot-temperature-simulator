@@ -22,6 +22,12 @@ export class MessageService implements OnModuleInit {
         );
 
         await this.repository.save(createMessage);
+
+        await new Promise<void>((resolve) =>
+          setTimeout(() => {
+            resolve();
+          }, 100),
+        );
       },
     });
   }
