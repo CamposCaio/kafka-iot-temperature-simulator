@@ -43,7 +43,7 @@ services:
     build:
       context: ./iot-gateway
       dockerfile: Dockerfile
-    container_name: iot-gateway
+    container_name: k-iot-gateway
     environment:
       - PORT=3004
     ports:
@@ -58,7 +58,7 @@ services:
     build:
       context: ./temperature-monitor
       dockerfile: Dockerfile
-    container_name: temperature-monitor
+    container_name: k-temperature-monitor
     environment:
       - PORT=3005
     ports:
@@ -72,7 +72,7 @@ services:
     build:
       context: ./database-writer
       dockerfile: Dockerfile
-    container_name: database-writer
+    container_name: k-database-writer
     environment:
       - PORT=3006
     ports:
