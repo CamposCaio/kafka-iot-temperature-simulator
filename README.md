@@ -16,6 +16,7 @@ The project uses Docker Compose for easy setup and deployment, including Kafka C
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing](#testing)
+- [Authors](#authors)
 
 ## Prerequisites
 
@@ -80,3 +81,8 @@ This command will start Grafana, InfluxDB, and K6 for performance testing and mo
       ```bash
       docker compose run k6 run /scripts/stress-test.js
       ```
+
+## Authors
+
+- [@CamposCaio](https://www.github.com/CamposCaio)
+- [@maxwmsilva](https://www.github.com/maxwmsilva)
